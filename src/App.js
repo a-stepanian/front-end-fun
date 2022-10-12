@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import Home from "./components/Home";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.querySelector(".app-wrapper").classList.add("fuzzy");
+    } else {
+      document.querySelector(".app-wrapper").classList.remove("fuzzy");
+    }
+  }, [menuOpen]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <div className="app-wrapper">
+        <Home />
+      </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.main`
+  .app-wrapper {
+    min-height: 100vh;
+  }
+`;
 
 export default App;
