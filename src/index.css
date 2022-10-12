@@ -12,9 +12,10 @@
   --black: rgb(34, 42, 46);
   --blue: rgb(126, 177, 199);
   --red: rgb(197, 48, 48);
+  --green: rgb(109, 230, 65);
   --white: rgb(227, 227, 227);
   --gray: rgb(106, 119, 125);
-  --dark-gray: rgb(49, 61, 66);
+  --dark-gray: rgb(42, 55, 60);
 }
 
 body {
