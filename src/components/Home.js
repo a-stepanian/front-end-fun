@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Show from "./Show";
+import Dashboard from "./Dashboard";
+import Grid from "./Grid";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +12,13 @@ const Home = () => {
       document.querySelector(".top-door").classList.add("top-door-open");
       document.querySelector(".bottom-door").classList.add("bottom-door-open");
       document.querySelector(".button").classList.add("button-open");
+      document.querySelector(".filter").classList.add("clear");
     }
   }, [isOpen]);
 
   return (
     <Wrapper>
-      <Show />
+      <Grid />
       <div className="bottom-door">
         <div className="center-panel panel"></div>
         <div className="left-panel panel"></div>
@@ -31,6 +34,7 @@ const Home = () => {
           <p className="text">P3-02Z0735S</p>
         </div>
       </div>
+      <div className="filter"></div>
     </Wrapper>
   );
 };
@@ -46,11 +50,13 @@ const Wrapper = styled.div`
     width: 100%;
     height: 50%;
     transition: top 0.8s linear;
-    transition-delay: 0.6s;
+    transition-delay: 1.1s;
     background: url("https://images.unsplash.com/photo-1514092135741-08b367214e27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1958&q=80");
     border-bottom: 2px solid var(--red);
     box-shadow: 0 0 0.5rem var(--red);
     .text-wrapper {
+      position: relative;
+      z-index: 1;
       padding: 1rem;
       font-size: 2rem;
       text-shadow: 1px 1px 1px black;
@@ -122,13 +128,25 @@ const Wrapper = styled.div`
     height: 50%;
     width: 100%;
     transition: bottom 0.8s linear;
-    transition-delay: 0.6s;
+    transition-delay: 1.1s;
     background: url("https://images.unsplash.com/photo-1514092135741-08b367214e27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1958&q=80");
     box-shadow: 0 0 1rem var(--red);
   }
   .bottom-door-open {
     bottom: -100%;
     box-shadow: 0 0 1rem var(--blue);
+  }
+
+  .filter {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+  }
+  .clear {
+    backdrop-filter: none;
   }
 `;
 
