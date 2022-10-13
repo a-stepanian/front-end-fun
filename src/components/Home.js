@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <Grid />
+      <Grid isOpen={isOpen} />
       <div className="bottom-door">
         <div className="center-panel panel"></div>
         <div className="left-panel panel"></div>
