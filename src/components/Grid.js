@@ -25,12 +25,18 @@ const Grid = ({ isOpen }) => {
           if (step === 4) setStep(1);
           setCounter((prev) => prev + 2);
         }
-      }, 30);
+      }, 50);
     }
   }, [step, pause]);
 
   return (
     <Wrapper>
+      <div className="sky">
+        <img
+          src="https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
+          alt=""
+        />
+      </div>
       <div className="hline"></div>
       <div
         className="hline pos0"
@@ -100,6 +106,15 @@ const Grid = ({ isOpen }) => {
       <div className="line right3"></div>
       <div className="line right4"></div>
       <div className="line right5"></div>
+      {/* Top vertical lines */}
+      <div className="topline topleft2"></div>
+      <div className="topline topleft3"></div>
+      <div className="topline topleft4"></div>
+      <div className="topline topleft5"></div>
+      <div className="topline topright2"></div>
+      <div className="topline topright3"></div>
+      <div className="topline topright4"></div>
+      <div className="topline topright5"></div>
       <div
         className="blue-box"
         style={{
@@ -119,6 +134,17 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   .hline {
     position: absolute;
     top: 50%;
